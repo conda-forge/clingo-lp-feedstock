@@ -10,19 +10,19 @@ source:
 
 build:
   noarch: python
-  number: 0
+  number: 1
   script: "{{ PYTHON }} -m pip install . -vv"
   entry_points:
     - clingoLP = clingolp.app:main_clingo
 
 requirements:
   host:
-    - python >=3.6
+    - python {{ python_min }}
     - lpsolve55
     - pip
   run:
     - clingo >=5.5.1
-    - python >=3.6
+    - python >={{ python_min }}
     - lpsolve55
 
 test:
@@ -30,6 +30,7 @@ test:
     - clingolp
   requires:
     - pip
+    - python {{ python_min }}
   commands:
     - pip check
     - clingoLP --version
