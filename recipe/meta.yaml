@@ -19,6 +19,7 @@ requirements:
   host:
     - python {{ python_min }}
     - lpsolve55
+    - setuptools
     - pip
   run:
     - clingo >=5.5.1
